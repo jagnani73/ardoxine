@@ -16,8 +16,10 @@ const HomePage: NextPage = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    audioRef.current?.play();
-  }, []);
+    if (audioRef) {
+      audioRef.current?.play();
+    }
+  }, [audioRef]);
 
   const CARDS = useMemo<
     {
